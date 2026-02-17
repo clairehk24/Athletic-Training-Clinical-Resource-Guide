@@ -58,13 +58,6 @@
         margin-bottom: 12px;
       }
 
-      /* NOTE: sidebar logo removed; keep this class unused or delete if you want */
-      .logo {
-        height: 40px;
-        box-shadow: var(--shadow);
-        flex: none;
-      }
-
       .brand h1 {
         font-size: 26px;
         margin: 0;
@@ -221,7 +214,7 @@
         margin-top: 2px;
       }
 
-      /* Right side: search + logo */
+      /* Right side: search */
       .topbar .right {
         display: flex;
         gap: 12px;
@@ -247,12 +240,6 @@
         box-shadow: 0 0 0 4px rgba(42, 77, 122, 0.14);
       }
 
-      .top-logo {
-        height: 50px; /* adjust smaller/larger as needed */
-        width: auto;
-        display: block;
-      }
-
       .viewer {
         position: relative;
         flex: 1;
@@ -274,6 +261,7 @@
         box-shadow: var(--shadow);
       }
 
+      /* Home panel (reuses your empty-state positioning) */
       .empty {
         position: absolute;
         inset: 16px;
@@ -306,6 +294,111 @@
           --sidebar-w: 100%;
         }
       }
+      .home-page {
+        position: absolute;
+        inset: 16px;
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        background: rgba(252, 252, 252, 0.92);
+        box-shadow: var(--shadow);
+        overflow: auto;
+        padding: 18px;
+        display: none; /* toggled by JS */
+        pointer-events: auto; /* allow selection/scroll */
+      }
+
+      .home-hero {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 16px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, rgba(42, 77, 122, 0.1), rgba(0, 0, 0, 0) 55%);
+        border: 1px solid rgba(0, 0, 0, 0.08);
+      }
+
+      .home-brand {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        min-width: 0;
+      }
+
+      .home-logo {
+        height: 56px;
+        width: auto;
+        display: block;
+      }
+
+      .home-title {
+        font-weight: 900;
+        color: var(--accent);
+        font-size: 22px;
+        letter-spacing: 0.2px;
+        margin: 0;
+      }
+
+      .home-subtitle {
+        margin: 4px 0 0;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .home-grid {
+        margin-top: 16px;
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 16px;
+        align-items: start;
+      }
+
+      .home-card {
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        background: #fff;
+        border-radius: 12px;
+        padding: 14px;
+      }
+
+      .home-card h3 {
+        margin: 0 0 8px;
+        font-size: 14px;
+        color: var(--accent);
+        letter-spacing: 0.2px;
+      }
+
+      .home-card p {
+        margin: 0 0 10px;
+        font-size: 13px;
+        color: var(--text);
+        line-height: 1.55;
+      }
+
+      .home-card ul {
+        margin: 0;
+        padding-left: 18px;
+        font-size: 13px;
+        color: var(--text);
+        line-height: 1.55;
+      }
+
+      .home-foot {
+        margin-top: 16px;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        padding-top: 12px;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.45;
+      }
+
+      @media (max-width: 900px) {
+        .home-grid {
+          grid-template-columns: 1fr;
+        }
+        .home-logo {
+          height: 44px;
+        }
+      }
     </style>
   </head>
 
@@ -322,6 +415,12 @@
         <div class="hint">Tip: Expand a section, then click a resource to load it on the right.</div>
 
         <nav class="tree" aria-label="Resource navigation">
+          <!-- HOME LINK (added above Clinical Reference) -->
+          <a class="navlink" href="#" id="homeLink" data-title="Home">
+            <span class="file" aria-hidden="true">📄</span>
+            Home
+          </a>
+
           <details open>
             <summary>
               <span class="twisty" aria-hidden="true">▸</span>
@@ -395,21 +494,61 @@
       <main>
         <div class="topbar">
           <div class="left">
-            <div class="title" id="pageTitle">Select a resource to view.</div>
-            <div class="subtitle" id="pageSubtitle">Use the menu to the left to expand sections and open a page.</div>
+            <div class="title" id="pageTitle">Home</div>
+            <div class="subtitle" id="pageSubtitle">About this resource guide.</div>
           </div>
 
           <div class="right">
             <input class="search" id="searchInput" type="search" placeholder="Filter links…" aria-label="Filter navigation links" />
-            <img src="resources/HK logo vertical stacked 4C.png" class="top-logo" alt="Logo" />
           </div>
         </div>
 
         <div class="viewer">
-          <div class="empty" id="emptyState">
-            <div>
-              <div style="font-weight: 800; color: var(--accent); margin-bottom: 6px">No resource loaded</div>
-              <div style="font-size: 13px">Choose a resource from the left navigation to display it here.</div>
+          <!-- HOME PAGE (stored in index) -->
+          <div class="home-page" id="homePage">
+            <div class="home-hero">
+              <div class="home-brand">
+                <img src="resources/HK logo vertical stacked 4C.png" class="home-logo" alt="Logo" />
+                <div style="min-width: 0">
+                  <h2 class="home-title">Athletic Training Clinical Resource Guide</h2>
+                  <div class="home-subtitle">Clinical reference library</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="home-grid">
+              <div class="home-card">
+                <h3>About this guide</h3>
+                <p>
+                  This guide consolidates frequently used athletic training reference tables and quick tools for day-to-day clinical practice. Use the navigation on the left to open resources in the
+                  viewer.
+                </p>
+                <p>Content is provided for educational and clinical reference purposes and should be used in conjunction with professional judgment and applicable policies/protocols.</p>
+              </div>
+
+              <div class="home-card">
+                <h3>What you’ll find</h3>
+                <ul>
+                  <li>Normal vitals reference ranges</li>
+                  <li>Glasgow Coma Scale (GCS)</li>
+                  <li>Reflex grading</li>
+                  <li>Myotomes &amp; dermatomes</li>
+                  <li>Blood lab tests</li>
+                  <li>Medication class quick guide</li>
+                  <li>Common billing codes</li>
+                  <li>Abbreviations glossary</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="home-foot">
+              <div>
+                <strong>Copyright:</strong>
+                ©
+                <span id="homeYear"></span>
+                Your Organization. All rights reserved.
+              </div>
+              <div style="margin-top: 6px">If you reuse or distribute this guide, include attribution and do not remove copyright notices.</div>
             </div>
           </div>
 
@@ -422,10 +561,14 @@
       (function () {
         const links = Array.from(document.querySelectorAll("a.navlink"));
         const frame = document.getElementById("contentFrame");
-        const empty = document.getElementById("emptyState");
         const pageTitle = document.getElementById("pageTitle");
         const pageSubtitle = document.getElementById("pageSubtitle");
         const searchInput = document.getElementById("searchInput");
+
+        const homeLink = document.getElementById("homeLink");
+        const homePage = document.getElementById("homePage");
+        const homeYear = document.getElementById("homeYear");
+        if (homeYear) homeYear.textContent = new Date().getFullYear();
 
         function openAncestorDetails(el) {
           let d = el && el.closest ? el.closest("details") : null;
@@ -439,14 +582,38 @@
           links.forEach((a) => a.classList.toggle("active", a === link));
           const title = link.getAttribute("data-title") || link.textContent.trim();
           if (pageTitle) pageTitle.textContent = title;
-          if (pageSubtitle) pageSubtitle.textContent = " ";
-          if (empty) empty.style.display = "none";
+          if (pageSubtitle) pageSubtitle.textContent = "Loaded in the viewer on the right.";
         }
 
-        // Click behavior: highlight + load in iframe
+        function showHome() {
+          links.forEach((a) => a.classList.remove("active"));
+          if (homeLink) homeLink.classList.add("active");
+
+          if (pageTitle) pageTitle.textContent = "Home";
+          if (pageSubtitle) pageSubtitle.textContent = "About this resource guide.";
+
+          if (frame) frame.removeAttribute("src");
+          if (homePage) homePage.style.display = "block";
+        }
+
+        function hideHome() {
+          if (homePage) homePage.style.display = "none";
+        }
+
+        // Home click
+        if (homeLink) {
+          homeLink.addEventListener("click", (e) => {
+            e.preventDefault();
+            showHome();
+          });
+        }
+
+        // Resource click behavior: highlight + load in iframe
         links.forEach((a) => {
+          if (a === homeLink) return;
           a.addEventListener("click", (e) => {
             if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+            hideHome();
             setActive(a);
             openAncestorDetails(a);
             if (frame) frame.src = a.getAttribute("href");
@@ -465,10 +632,14 @@
           d.addEventListener("toggle", () => syncTwisty(d));
         });
 
-        // Filter nav links
+        // Filter nav links (keeps Home always visible)
         function filterNav(q) {
           q = (q || "").trim().toLowerCase();
           links.forEach((a) => {
+            if (a === homeLink) {
+              a.style.display = "";
+              return;
+            }
             const hay = (a.textContent + " " + (a.getAttribute("data-title") || "")).toLowerCase();
             a.style.display = !q || hay.includes(q) ? "" : "none";
           });
@@ -477,13 +648,8 @@
           searchInput.addEventListener("input", (e) => filterNav(e.target.value));
         }
 
-        // Auto-launch default
-        const defaultLink = document.getElementById("defaultLink") || links[0];
-        if (defaultLink && frame) {
-          openAncestorDetails(defaultLink);
-          setActive(defaultLink);
-          frame.src = defaultLink.getAttribute("href");
-        }
+        // Start on Home (instead of auto-loading a resource)
+        showHome();
       })();
     </script>
   </body>
