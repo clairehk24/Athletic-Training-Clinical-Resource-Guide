@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Common Classes of Medications</title>
+
+    <style>
+      :root {
+        --bg: #ffffff;
+        --panel: #fcfcfc;
+        --panel2: #f8f9fa;
+        --text: #454545;
+        --muted: #555;
+        --accent: #2a4d7a;
+        --border: rgba(0, 0, 0, 0.1);
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        --radius: 14px;
+        --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: var(--font);
+        background: var(--bg);
+        color: var(--text);
+      }
+
+      .wrap {
+        padding: 24px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      h1 {
+        margin: 0 0 18px;
+        font-size: 24px;
+        color: var(--accent);
+        letter-spacing: 0.3px;
+      }
+
+      .table-wrap {
+        border-radius: var(--radius);
+        overflow: hidden;
+        border: 1px solid var(--border);
+        background: #fff;
+        box-shadow: var(--shadow);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14px;
+      }
+
+      th,
+      td {
+        padding: 12px 14px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        text-align: left;
+        vertical-align: top;
+      }
+
+      th {
+        background: var(--panel2);
+        font-weight: 900;
+        color: var(--muted);
+        text-transform: uppercase;
+        font-size: 12px;
+        letter-spacing: 0.06em;
+        white-space: nowrap;
+      }
+
+      tr:last-child td {
+        border-bottom: none;
+      }
+
+      /* Improve readability for multi-line examples */
+      td.examples div {
+        margin: 0 0 4px;
+      }
+      td.examples div:last-child {
+        margin: 0;
+      }
+
+      .scroll {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      @media (max-width: 800px) {
+        th,
+        td {
+          padding: 10px;
+          font-size: 13px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div
+      class="wrap"
+      data-searchable="common classes of medications suffixes examples analgesics opioid antacids antibiotics anticoagulants antidepressants antihistamines anti-inflammatory antipsychotics beta-blockers bronchodilators corticosteroids diuretics hypoglycemics statins"
+    >
+      <h1>Common Classes of Medications</h1>
+
+      <div class="table-wrap scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Class of Medication</th>
+              <th>Common Suffixes</th>
+              <th>Example</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Analgesics (non-opioid)</td>
+              <td>-fen, -phen, -caine</td>
+              <td class="examples">
+                <div>Fenoprofen (Nalfon)</div>
+                <div>acetaminophen</div>
+                <div>lidocaine</div>
+              </td>
+            </tr>
+
+            <tr>
+              <td>Analgesics (opioid)</td>
+              <td>-drone</td>
+              <td class="examples">
+                <div>Hydrocodone</div>
+                <div>oxycodone</div>
+              </td>
+            </tr>
+
+            <tr>
+              <td>Antacids</td>
+              <td>-azole</td>
+              <td class="examples"><div>omeprazole</div></td>
+            </tr>
+
+            <tr>
+              <td>Antibiotics</td>
+              <td>
+                -mycin, -floxacin
+                <br />
+                -cillin
+              </td>
+              <td class="examples">
+                <div>Levofloxacin</div>
+                <div>amoxicillin</div>
+              </td>
+            </tr>
+
+            <tr>
+              <td>Anticoagulants</td>
+              <td>-arin</td>
+              <td class="examples"><div>warfarin</div></td>
+            </tr>
+
+            <tr>
+              <td>Antidepressants</td>
+              <td>-oxetine, -ipramine</td>
+              <td class="examples"><div>fluoxetine</div></td>
+            </tr>
+
+            <tr>
+              <td>Antihistamines</td>
+              <td>-dine, -mine</td>
+              <td class="examples"><div>diphenhydramine</div></td>
+            </tr>
+
+            <tr>
+              <td>Anti-inflammatory</td>
+              <td>-one</td>
+              <td class="examples"><div>cortisone</div></td>
+            </tr>
+
+            <tr>
+              <td>Antipsychotics</td>
+              <td>-azine, -apine</td>
+              <td class="examples"><div>olanzapine</div></td>
+            </tr>
+
+            <tr>
+              <td>Beta-blockers</td>
+              <td>-olol</td>
+              <td class="examples"><div>metoprolol</div></td>
+            </tr>
+
+            <tr>
+              <td>Bronchodilators</td>
+              <td>-terol</td>
+              <td class="examples"><div>albuterol</div></td>
+            </tr>
+
+            <tr>
+              <td>Corticosteroids</td>
+              <td>-sone or -solone</td>
+              <td class="examples"><div>prednisone</div></td>
+            </tr>
+
+            <tr>
+              <td>Diuretics</td>
+              <td>-semide, -thiazide</td>
+              <td class="examples"><div>furosemide</div></td>
+            </tr>
+
+            <tr>
+              <td>Hypoglycemics</td>
+              <td>-ide</td>
+              <td class="examples"><div>glipizide</div></td>
+            </tr>
+
+            <tr>
+              <td>Statins</td>
+              <td>-statin</td>
+              <td class="examples"><div>atorvastatin</div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

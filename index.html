@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Athletic Training Clinical Resource Guide</title>
+
+    <style>
+      :root {
+        /* Use your palette from theme.css (tan + navy), but keep modern layout */
+        --bg: #eae7dd;
+        --panel: #fcfcfc;
+        --panel2: #f8f9fa;
+        --text: #454545;
+        --muted: #555;
+        --accent: #2a4d7a;
+        --border: rgba(0, 0, 0, 0.1);
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+        --sidebar-w: 340px;
+        --radius: 14px;
+        --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        font-family: var(--font);
+        background: radial-gradient(1200px 700px at 20% 0%, rgba(42, 77, 122, 0.12) 0%, var(--bg) 55%);
+        color: var(--text);
+      }
+
+      .app {
+        height: 100%;
+        display: grid;
+        grid-template-columns: var(--sidebar-w) 1fr;
+      }
+
+      /* Sidebar */
+      aside {
+        background: linear-gradient(180deg, var(--panel) 0%, var(--panel2) 100%);
+        border-right: 1px solid var(--border);
+        padding: 18px 14px;
+        overflow: auto;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 10px 10px 14px;
+        border-bottom: 1px solid var(--border);
+        margin-bottom: 12px;
+      }
+
+      /* NOTE: sidebar logo removed; keep this class unused or delete if you want */
+      .logo {
+        height: 40px;
+        box-shadow: var(--shadow);
+        flex: none;
+      }
+
+      .brand h1 {
+        font-size: 26px;
+        margin: 0;
+        letter-spacing: 0.2px;
+        line-height: 1.2;
+        color: var(--accent);
+      }
+      .brand p {
+        margin: 2px 0 0;
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      .hint {
+        font-size: 12px;
+        color: var(--muted);
+        padding: 0 10px 12px;
+      }
+
+      .tree {
+        padding: 0 6px 18px;
+      }
+
+      /* Expand/collapse using <details> */
+      details {
+        border-radius: 12px;
+        margin: 6px 0;
+      }
+
+      details > summary {
+        list-style: none;
+        cursor: pointer;
+        padding: 10px 10px;
+        border: 1px solid transparent;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        user-select: none;
+      }
+      details > summary::-webkit-details-marker {
+        display: none;
+      }
+
+      details > summary:hover {
+        border-color: var(--border);
+        background: rgba(42, 77, 122, 0.06);
+      }
+
+      details[open] > summary {
+        background: rgba(42, 77, 122, 0.08);
+        border-color: rgba(42, 77, 122, 0.18);
+      }
+
+      .twisty {
+        width: 18px;
+        height: 18px;
+        flex: none;
+        border-radius: 6px;
+        display: grid;
+        place-items: center;
+        background: rgba(0, 0, 0, 0.04);
+        border: 1px solid var(--border);
+        font-size: 12px;
+        color: var(--muted);
+      }
+      details[open] .twisty {
+        color: var(--text);
+      }
+
+      .node-title {
+        font-weight: 700;
+        font-size: 13px;
+        letter-spacing: 0.15px;
+      }
+
+      /* Nested indentation */
+      .level {
+        padding-left: 18px;
+        margin: 4px 0 10px;
+        border-left: 1px dashed rgba(0, 0, 0, 0.14);
+      }
+
+      .links {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        padding: 4px 0 8px 10px;
+      }
+
+      a.navlink {
+        color: var(--text);
+        text-decoration: none;
+        font-size: 13px;
+        padding: 8px 10px;
+        border-radius: 10px;
+        border: 1px solid transparent;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      a.navlink:hover {
+        background: rgba(42, 77, 122, 0.06);
+        border-color: rgba(42, 77, 122, 0.14);
+      }
+      a.navlink.active {
+        background: rgba(42, 77, 122, 0.12);
+        border-color: rgba(42, 77, 122, 0.28);
+      }
+
+      .file {
+        width: 18px;
+        height: 18px;
+        flex: none;
+        border-radius: 6px;
+        display: grid;
+        place-items: center;
+        background: rgba(0, 0, 0, 0.04);
+        border: 1px solid var(--border);
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      /* Main content */
+      main {
+        display: flex;
+        flex-direction: column;
+        min-width: 0; /* allows iframe to shrink */
+      }
+
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 14px 16px;
+        border-bottom: 1px solid var(--border);
+        background: rgba(252, 252, 252, 0.7);
+        backdrop-filter: blur(10px);
+      }
+      .topbar .left {
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+      }
+      .topbar .title {
+        font-weight: 800;
+        letter-spacing: 0.2px;
+        color: var(--accent);
+      }
+      .topbar .subtitle {
+        color: var(--muted);
+        font-size: 12px;
+        margin-top: 2px;
+      }
+
+      /* Right side: search + logo */
+      .topbar .right {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        color: var(--muted);
+        font-size: 12px;
+        white-space: nowrap;
+      }
+
+      .search {
+        width: 280px;
+        max-width: 42vw;
+        border: 1px solid var(--border);
+        background: rgba(252, 252, 252, 0.92);
+        border-radius: 999px;
+        padding: 8px 12px;
+        outline: none;
+        font-size: 13px;
+        color: var(--text);
+      }
+      .search:focus {
+        border-color: rgba(42, 77, 122, 0.45);
+        box-shadow: 0 0 0 4px rgba(42, 77, 122, 0.14);
+      }
+
+      .top-logo {
+        height: 50px; /* adjust smaller/larger as needed */
+        width: auto;
+        display: block;
+      }
+
+      .viewer {
+        position: relative;
+        flex: 1;
+        min-height: 0;
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* Viewer / iframe scrolling fix */
+      #contentFrame {
+        flex: 1;
+        min-height: 0;
+        width: 100%;
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        background: #ffffff;
+        overflow: auto;
+        box-shadow: var(--shadow);
+      }
+
+      .empty {
+        position: absolute;
+        inset: 16px;
+        border: 1px dashed rgba(0, 0, 0, 0.22);
+        border-radius: var(--radius);
+        display: grid;
+        place-items: center;
+        padding: 22px;
+        text-align: center;
+        color: var(--muted);
+        background: rgba(252, 252, 252, 0.6);
+        pointer-events: none;
+      }
+
+      /* Responsive: collapse sidebar on small screens */
+      @media (max-width: 900px) {
+        .app {
+          grid-template-columns: 1fr;
+        }
+        aside {
+          position: sticky;
+          top: 0;
+          z-index: 10;
+          max-height: 52vh;
+        }
+        .viewer {
+          height: 48vh;
+        }
+        :root {
+          --sidebar-w: 100%;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="app">
+      <aside>
+        <div class="brand">
+          <div>
+            <h1>Athletic Training Clinical Resource Guide</h1>
+            <p></p>
+          </div>
+        </div>
+
+        <div class="hint">Tip: Expand a section, then click a resource to load it on the right.</div>
+
+        <nav class="tree" aria-label="Resource navigation">
+          <details open>
+            <summary>
+              <span class="twisty" aria-hidden="true">▸</span>
+              <span class="node-title">Clinical Reference</span>
+            </summary>
+
+            <div class="level">
+              <div class="links">
+                <a class="navlink" href="resources/normal-vitals.html" target="contentFrame" data-title="Clinical Reference • Normal vitals" id="defaultLink">
+                  <span class="file" aria-hidden="true">📄</span>
+                  Normal vitals
+                </a>
+                <a class="navlink" href="resources/gcs.html" target="contentFrame" data-title="Clinical Reference • Glasgow Coma Scale">
+                  <span class="file" aria-hidden="true">📄</span>
+                  Glasgow Coma Scale (GCS)
+                </a>
+                <a class="navlink" href="resources/reflexes.html" target="contentFrame" data-title="Clinical Reference • Reflex grading">
+                  <span class="file" aria-hidden="true">📄</span>
+                  Reflex grading
+                </a>
+                <a class="navlink" href="resources/myotomes-dermatomes.html" target="contentFrame" data-title="Clinical Reference • Myotomes &amp; dermatomes">
+                  <span class="file" aria-hidden="true">📄</span>
+                  Myotomes &amp; dermatomes
+                </a>
+                <a class="navlink" href="resources/blood-labs.html" target="contentFrame" data-title="Clinical Reference • Blood lab tests">
+                  <span class="file" aria-hidden="true">📄</span>
+                  Blood lab tests
+                </a>
+              </div>
+            </div>
+          </details>
+
+          <details open>
+            <summary>
+              <span class="twisty" aria-hidden="true">▸</span>
+              <span class="node-title">Medications</span>
+            </summary>
+
+            <div class="level">
+              <div class="links">
+                <a class="navlink" href="resources/med-classes.html" target="contentFrame" data-title="Medications • Common medication classes">
+                  <span class="file" aria-hidden="true">📄</span>
+                  Common medication classes
+                </a>
+              </div>
+            </div>
+          </details>
+
+          <details open>
+            <summary>
+              <span class="twisty" aria-hidden="true">▸</span>
+              <span class="node-title">Documentation &amp; Coding</span>
+            </summary>
+
+            <div class="level">
+              <div class="links">
+                <a class="navlink" href="resources/billing-codes.html" target="contentFrame" data-title="Documentation &amp; Coding • ICD/CPT/HCPCS codes">
+                  <span class="file" aria-hidden="true">📄</span>
+                  ICD/CPT/HCPCS codes
+                </a>
+                <a class="navlink" href="resources/abbreviations.html" target="contentFrame" data-title="Documentation &amp; Coding • Abbreviations">
+                  <span class="file" aria-hidden="true">📄</span>
+                  Abbreviations
+                </a>
+              </div>
+            </div>
+          </details>
+        </nav>
+      </aside>
+
+      <main>
+        <div class="topbar">
+          <div class="left">
+            <div class="title" id="pageTitle">Select a resource to view.</div>
+            <div class="subtitle" id="pageSubtitle">Use the menu to the left to expand sections and open a page.</div>
+          </div>
+
+          <div class="right">
+            <input class="search" id="searchInput" type="search" placeholder="Filter links…" aria-label="Filter navigation links" />
+            <img src="resources/HK logo vertical stacked 4C.png" class="top-logo" alt="Logo" />
+          </div>
+        </div>
+
+        <div class="viewer">
+          <div class="empty" id="emptyState">
+            <div>
+              <div style="font-weight: 800; color: var(--accent); margin-bottom: 6px">No resource loaded</div>
+              <div style="font-size: 13px">Choose a resource from the left navigation to display it here.</div>
+            </div>
+          </div>
+
+          <iframe name="contentFrame" id="contentFrame" title="Resource Viewer" scrolling="yes"></iframe>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      (function () {
+        const links = Array.from(document.querySelectorAll("a.navlink"));
+        const frame = document.getElementById("contentFrame");
+        const empty = document.getElementById("emptyState");
+        const pageTitle = document.getElementById("pageTitle");
+        const pageSubtitle = document.getElementById("pageSubtitle");
+        const searchInput = document.getElementById("searchInput");
+
+        function openAncestorDetails(el) {
+          let d = el && el.closest ? el.closest("details") : null;
+          while (d) {
+            d.open = true;
+            d = d.parentElement ? d.parentElement.closest("details") : null;
+          }
+        }
+
+        function setActive(link) {
+          links.forEach((a) => a.classList.toggle("active", a === link));
+          const title = link.getAttribute("data-title") || link.textContent.trim();
+          if (pageTitle) pageTitle.textContent = title;
+          if (pageSubtitle) pageSubtitle.textContent = " ";
+          if (empty) empty.style.display = "none";
+        }
+
+        // Click behavior: highlight + load in iframe
+        links.forEach((a) => {
+          a.addEventListener("click", (e) => {
+            if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+            setActive(a);
+            openAncestorDetails(a);
+            if (frame) frame.src = a.getAttribute("href");
+          });
+        });
+
+        // Twisty sync
+        const allDetails = Array.from(document.querySelectorAll("details"));
+        function syncTwisty(d) {
+          const t = d.querySelector(":scope > summary .twisty");
+          if (!t) return;
+          t.textContent = d.open ? "▾" : "▸";
+        }
+        allDetails.forEach((d) => {
+          syncTwisty(d);
+          d.addEventListener("toggle", () => syncTwisty(d));
+        });
+
+        // Filter nav links
+        function filterNav(q) {
+          q = (q || "").trim().toLowerCase();
+          links.forEach((a) => {
+            const hay = (a.textContent + " " + (a.getAttribute("data-title") || "")).toLowerCase();
+            a.style.display = !q || hay.includes(q) ? "" : "none";
+          });
+        }
+        if (searchInput) {
+          searchInput.addEventListener("input", (e) => filterNav(e.target.value));
+        }
+
+        // Auto-launch default
+        const defaultLink = document.getElementById("defaultLink") || links[0];
+        if (defaultLink && frame) {
+          openAncestorDetails(defaultLink);
+          setActive(defaultLink);
+          frame.src = defaultLink.getAttribute("href");
+        }
+      })();
+    </script>
+  </body>
+</html>

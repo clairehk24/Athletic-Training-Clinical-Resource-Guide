@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Glasgow Coma Scale (GCS)</title>
+
+    <style>
+      :root {
+        /* matches your index palette */
+        --bg: #ffffff;
+        --panel: #fcfcfc;
+        --panel2: #f8f9fa;
+        --text: #454545;
+        --muted: #555;
+        --accent: #2a4d7a;
+        --border: rgba(0, 0, 0, 0.1);
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        --radius: 14px;
+        --radius-sm: 12px;
+        --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: var(--font);
+        color: var(--text);
+        background: var(--bg);
+      }
+
+      .wrap {
+        padding: 18px;
+        max-width: 980px;
+        margin: 0 auto;
+      }
+
+      h1 {
+        margin: 0 0 14px;
+        font-size: 22px;
+        color: var(--accent);
+        letter-spacing: 0.2px;
+      }
+
+      .gcs-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* was auto-fit 3 */
+        gap: 20px;
+      }
+
+      .gcs-block {
+        background: linear-gradient(180deg, var(--panel) 0%, var(--panel2) 100%);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: 12px 14px;
+      }
+
+      .gcs-title {
+        font-weight: 800;
+        color: var(--accent);
+        font-size: 14px;
+        letter-spacing: 0.2px;
+        margin: 0 0 10px;
+      }
+
+      /* Rounded corners without clipping text */
+      .table-wrap {
+        border-radius: var(--radius-sm);
+        overflow: hidden;
+        border: 1px solid var(--border);
+        background: #fff;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        border: none;
+        background: transparent;
+      }
+
+      td {
+        padding: 12px 14px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        font-size: 15px;
+        line-height: 1.25;
+      }
+
+      tr:last-child td {
+        border-bottom: none;
+      }
+
+      td:last-child {
+        font-weight: 800;
+        text-align: right;
+        color: var(--accent);
+        white-space: nowrap;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="wrap" data-searchable="gcs glasgow coma scale eye verbal motor">
+      <h1>Glasgow Coma Scale (GCS)</h1>
+
+      <div class="gcs-grid">
+        <div class="gcs-block">
+          <div class="gcs-title">Eye opening</div>
+          <div class="table-wrap">
+            <table>
+              <tbody>
+                <tr>
+                  <td>Spontaneous</td>
+                  <td>4</td>
+                </tr>
+                <tr>
+                  <td>To sound</td>
+                  <td>3</td>
+                </tr>
+                <tr>
+                  <td>To pressure</td>
+                  <td>2</td>
+                </tr>
+                <tr>
+                  <td>None</td>
+                  <td>1</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="gcs-block">
+          <div class="gcs-title">Verbal response</div>
+          <div class="table-wrap">
+            <table>
+              <tbody>
+                <tr>
+                  <td>Oriented</td>
+                  <td>5</td>
+                </tr>
+                <tr>
+                  <td>Confused</td>
+                  <td>4</td>
+                </tr>
+                <tr>
+                  <td>Words</td>
+                  <td>3</td>
+                </tr>
+                <tr>
+                  <td>Sounds</td>
+                  <td>2</td>
+                </tr>
+                <tr>
+                  <td>None</td>
+                  <td>1</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="gcs-block">
+          <div class="gcs-title">Motor response</div>
+          <div class="table-wrap">
+            <table>
+              <tbody>
+                <tr>
+                  <td>Obey commands</td>
+                  <td>6</td>
+                </tr>
+                <tr>
+                  <td>Localizing</td>
+                  <td>5</td>
+                </tr>
+                <tr>
+                  <td>Normal flexion</td>
+                  <td>4</td>
+                </tr>
+                <tr>
+                  <td>Abnormal flexion</td>
+                  <td>3</td>
+                </tr>
+                <tr>
+                  <td>Extension</td>
+                  <td>2</td>
+                </tr>
+                <tr>
+                  <td>None</td>
+                  <td>1</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Reflex Grading Scale</title>
+
+    <style>
+      :root {
+        --bg: #ffffff;
+        --panel: #fcfcfc;
+        --panel2: #f8f9fa;
+        --text: #454545;
+        --muted: #555;
+        --accent: #2a4d7a;
+        --border: rgba(0, 0, 0, 0.1);
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        --radius: 14px;
+        --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: var(--font);
+        background: var(--bg);
+        color: var(--text);
+      }
+
+      .wrap {
+        padding: 24px;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      h1 {
+        margin: 0 0 18px;
+        font-size: 24px;
+        color: var(--accent);
+        letter-spacing: 0.3px;
+      }
+
+      .table-wrap {
+        border-radius: var(--radius);
+        overflow: hidden;
+        border: 1px solid var(--border);
+        background: #fff;
+        box-shadow: var(--shadow);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14px;
+      }
+
+      th,
+      td {
+        padding: 12px 14px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        text-align: left;
+        vertical-align: top;
+      }
+
+      th {
+        background: var(--panel2);
+        font-weight: 800;
+        color: var(--muted);
+        text-transform: uppercase;
+        font-size: 12px;
+        letter-spacing: 0.06em;
+        width: 140px;
+        white-space: nowrap;
+      }
+
+      tr:last-child td {
+        border-bottom: none;
+      }
+
+      /* Subtle emphasis on the grade column for quick scanning */
+      td.grade {
+        font-weight: 900;
+        color: var(--accent);
+        width: 140px;
+        white-space: nowrap;
+      }
+
+      @media (max-width: 700px) {
+        th,
+        td {
+          padding: 10px;
+          font-size: 13px;
+        }
+        th,
+        td.grade {
+          width: 110px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="wrap" data-searchable="reflex grading scale 0 1+ 2+ 3+ 4+ hyporeflexia hyperreflexia clonus">
+      <h1>Reflex Grading Scale</h1>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Grade</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="grade">0</td>
+              <td>No response</td>
+            </tr>
+            <tr>
+              <td class="grade">1+</td>
+              <td>Hyporeflexia: diminished response, low normal</td>
+            </tr>
+            <tr>
+              <td class="grade">2+</td>
+              <td>Average: normal response</td>
+            </tr>
+            <tr>
+              <td class="grade">3+</td>
+              <td>Hyperreflexia: brisker than average</td>
+            </tr>
+            <tr>
+              <td class="grade">4+</td>
+              <td>Hyperactive: very brisk, with clonus</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

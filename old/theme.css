@@ -1,0 +1,25 @@
+/* assets/theme.css
+   Modern UI structure, using the palette from your shared style.css (colors only). */
+:root{
+  /* palette (from your file) */
+  --bg: #eae7dd;           /* page background */
+  --surface: #fcfcfc;      /* cards/panels */
+  --surface-2: #f8f9fa;    /* subtle alt surface */
+  --text: #454545;         /* body text */
+  --muted: #555;           /* secondary text */
+  --muted-2: #888;         /* tertiary text */
+  --border: #ddd;          /* borders */
+  --primary: #2a4d7a;      /* links/buttons */
+  --primary-hover: #343a40;/* hover/dark */
+
+  /* modern UI tokens (structure only; not new “brand colors”) */
+  --radius: 16px;
+  --radius-sm: 12px;
+  --shadow: 0 12px 30px rgba(0,0,0,.10);
+  --shadow-sm: 0 6px 16px rgba(0,0,0,.08);
+  --ring: 0 0 0 4px rgba(42,77,122,.18);
+
+  --max: 1180px;
+  --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+}
+

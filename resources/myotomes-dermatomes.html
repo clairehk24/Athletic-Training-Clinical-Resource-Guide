@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Myotomes & Dermatomes</title>
+
+    <style>
+      :root {
+        --bg: #ffffff;
+        --panel: #fcfcfc;
+        --panel2: #f8f9fa;
+        --text: #454545;
+        --muted: #555;
+        --accent: #2a4d7a;
+        --border: rgba(0, 0, 0, 0.1);
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        --radius: 14px;
+        --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: var(--font);
+        background: var(--bg);
+        color: var(--text);
+      }
+
+      .wrap {
+        padding: 24px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      h1 {
+        margin: 0 0 18px;
+        font-size: 24px;
+        color: var(--accent);
+        letter-spacing: 0.3px;
+      }
+
+      .section-title {
+        font-weight: 900;
+        color: var(--accent);
+        margin: 22px 0 10px;
+        font-size: 16px;
+        letter-spacing: 0.2px;
+      }
+
+      .table-wrap {
+        border-radius: var(--radius);
+        overflow: hidden;
+        border: 1px solid var(--border);
+        background: #fff;
+        box-shadow: var(--shadow);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14px;
+      }
+
+      th,
+      td {
+        padding: 12px 14px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        text-align: left;
+        vertical-align: top;
+      }
+
+      th {
+        background: var(--panel2);
+        font-weight: 900;
+        color: var(--muted);
+        text-transform: uppercase;
+        font-size: 12px;
+        letter-spacing: 0.06em;
+        white-space: nowrap;
+      }
+
+      tr:last-child td {
+        border-bottom: none;
+      }
+
+      .note {
+        margin: 16px 0 0;
+        padding: 12px 14px;
+        border-radius: var(--radius);
+        border: 1px solid rgba(42, 77, 122, 0.22);
+        background: rgba(42, 77, 122, 0.08);
+        color: var(--text);
+      }
+
+      .img-grid {
+        margin-top: 12px;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .imgph {
+        border: 1px dashed rgba(0, 0, 0, 0.22);
+        border-radius: var(--radius);
+        background: rgba(248, 249, 250, 0.75);
+        min-height: 180px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 14px;
+        color: var(--muted);
+      }
+
+      .scroll {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      @media (max-width: 800px) {
+        .img-grid {
+          grid-template-columns: 1fr;
+        }
+        th,
+        td {
+          padding: 10px;
+          font-size: 13px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="wrap" data-searchable="myotomes dermatomes upper extremity lower extremity nerve root c4 c5 c6 c7 c8 t1 l1 l2 l3 l4 l5 s1 s2">
+      <h1>Myotomes &amp; Dermatomes</h1>
+
+      <div class="section-title">Myotomes</div>
+      <div class="table-wrap scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Upper extremity myotomes</th>
+              <th>Nerve root</th>
+              <th>Lower extremity myotomes</th>
+              <th>Nerve root</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Shoulder shrug</td>
+              <td>C4</td>
+              <td>Hip flexion</td>
+              <td>L1, L2</td>
+            </tr>
+            <tr>
+              <td>Shoulder abduction</td>
+              <td>C5</td>
+              <td>Knee extension</td>
+              <td>L3</td>
+            </tr>
+            <tr>
+              <td>
+                Elbow flexion
+                <br />
+                Wrist extension
+              </td>
+              <td>C6</td>
+              <td>Ankle dorsiflexion</td>
+              <td>L4</td>
+            </tr>
+            <tr>
+              <td>
+                Elbow extension
+                <br />
+                Wrist flexion
+              </td>
+              <td>C7</td>
+              <td>Great toe extension</td>
+              <td>L5</td>
+            </tr>
+            <tr>
+              <td>Opposition</td>
+              <td>C8</td>
+              <td>
+                Ankle plantarflexion
+                <br />
+                Ankle eversion
+                <br />
+                Hip extension
+              </td>
+              <td>S1</td>
+            </tr>
+            <tr>
+              <td>Finger abduction</td>
+              <td>T1</td>
+              <td>Knee flexion</td>
+              <td>S2</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="section-title">Dermatomes</div>
+      <div class="note">Add dermatome images below (anterior and posterior). Replace the placeholders with your image files.</div>
+
+      <div class="img-grid" aria-label="Dermatome image placeholders">
+        <div class="imgph">
+          <div>
+            <div style="font-weight: 900; color: var(--accent); margin-bottom: 6px">Dermatomes — Anterior</div>
+            <div>
+              Set image path to something like
+              <code>images/dermatomes-anterior.png</code>
+            </div>
+            <!-- Example:
+          <img src="images/dermatomes-anterior.png" alt="Dermatomes map anterior view" style="width:100%; border-radius:12px;" />
+          --></div>
+        </div>
+
+        <div class="imgph">
+          <div>
+            <div style="font-weight: 900; color: var(--accent); margin-bottom: 6px">Dermatomes — Posterior</div>
+            <div>
+              Set image path to something like
+              <code>images/dermatomes-posterior.png</code>
+            </div>
+            <!-- Example:
+          <img src="images/dermatomes-posterior.png" alt="Dermatomes map posterior view" style="width:100%; border-radius:12px;" />
+          --></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

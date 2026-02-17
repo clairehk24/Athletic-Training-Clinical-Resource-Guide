@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Blood Lab Tests</title>
+
+    <style>
+      :root {
+        --bg: #ffffff;
+        --panel: #fcfcfc;
+        --panel2: #f8f9fa;
+        --text: #454545;
+        --muted: #555;
+        --accent: #2a4d7a;
+        --border: rgba(0, 0, 0, 0.1);
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        --radius: 14px;
+        --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: var(--font);
+        background: var(--bg);
+        color: var(--text);
+      }
+
+      .wrap {
+        padding: 24px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      h1 {
+        margin: 0 0 18px;
+        font-size: 24px;
+        color: var(--accent);
+        letter-spacing: 0.3px;
+      }
+
+      .section {
+        margin: 0 0 22px;
+      }
+
+      .section-title {
+        font-weight: 900;
+        color: var(--accent);
+        margin: 0 0 10px;
+        font-size: 16px;
+        letter-spacing: 0.2px;
+      }
+
+      .table-wrap {
+        border-radius: var(--radius);
+        overflow: hidden;
+        border: 1px solid var(--border);
+        background: #fff;
+        box-shadow: var(--shadow);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14px;
+      }
+
+      th,
+      td {
+        padding: 12px 14px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        text-align: left;
+        vertical-align: top;
+      }
+
+      th {
+        background: var(--panel2);
+        font-weight: 900;
+        color: var(--muted);
+        text-transform: uppercase;
+        font-size: 12px;
+        letter-spacing: 0.06em;
+        white-space: nowrap;
+      }
+
+      tr:last-child td {
+        border-bottom: none;
+      }
+
+      /* Make the Normal Range column easy to scan */
+      td.range {
+        font-weight: 700;
+        white-space: nowrap;
+      }
+
+      /* Responsive tables on small screens */
+      .scroll {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      @media (max-width: 800px) {
+        th,
+        td {
+          padding: 10px;
+          font-size: 13px;
+        }
+        td.range {
+          white-space: normal;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div
+      class="wrap"
+      data-searchable="blood lab tests normal values hemoglobin wbc platelets sodium potassium urea creatinine gfr glucose hba1c bilirubin alt ast alp albumin calcium phosphate cmp cardiac markers troponin ck-mb bnp nt-probnp myoglobin ldh hs-crp homocysteine lipoprotein(a)"
+    >
+      <h1>Blood Lab Tests</h1>
+
+      <!-- Blood Lab Tests and Their Normal Values -->
+      <div class="section">
+        <div class="section-title">Blood Lab Tests and Their Normal Values</div>
+        <div class="table-wrap scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>Test Name</th>
+                <th>Normal Range</th>
+                <th>What It Measures / Indicates</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Hemoglobin (Hb)</td>
+                <td class="range">
+                  Men: 130–170 g/L
+                  <br />
+                  Women: 110–150 g/L
+                </td>
+                <td>Oxygen-carrying capacity of red blood cells; low in anemia</td>
+              </tr>
+              <tr>
+                <td>White Blood Cell Count (WBC)</td>
+                <td class="range">4–11 × 10⁹/L</td>
+                <td>Immune response; high in infection, low in immunosuppression</td>
+              </tr>
+              <tr>
+                <td>Platelet Count</td>
+                <td class="range">150–400 × 10⁹/L</td>
+                <td>Blood clotting ability; low in bleeding disorders</td>
+              </tr>
+              <tr>
+                <td>Sodium (Na⁺)</td>
+                <td class="range">135–145 mmol/L</td>
+                <td>Fluid balance, nerve and muscle function</td>
+              </tr>
+              <tr>
+                <td>Potassium (K⁺)</td>
+                <td class="range">3.5–5.3 mmol/L</td>
+                <td>Heart and muscle function</td>
+              </tr>
+              <tr>
+                <td>Urea</td>
+                <td class="range">3–7 mmol/L</td>
+                <td>Kidney function and protein metabolism</td>
+              </tr>
+              <tr>
+                <td>Creatinine</td>
+                <td class="range">60–120 µmol/L</td>
+                <td>Kidney function</td>
+              </tr>
+              <tr>
+                <td>Glomerular Filtration Rate (GFR)</td>
+                <td class="range">90–120 mL/min/1.73m²</td>
+                <td>Overall kidney function</td>
+              </tr>
+              <tr>
+                <td>Blood Glucose (Fasting)</td>
+                <td class="range">4–6 mmol/L</td>
+                <td>Blood sugar levels; diabetes screening</td>
+              </tr>
+              <tr>
+                <td>HbA1c</td>
+                <td class="range">4–6% (20–42 mmol/mol)</td>
+                <td>Long-term blood sugar control</td>
+              </tr>
+              <tr>
+                <td>Bilirubin</td>
+                <td class="range">&lt;21 µmol/L</td>
+                <td>Liver function; high in jaundice</td>
+              </tr>
+              <tr>
+                <td>ALT (Alanine Aminotransferase)</td>
+                <td class="range">15–45 IU/L</td>
+                <td>Liver cell injury</td>
+              </tr>
+              <tr>
+                <td>AST (Aspartate Aminotransferase)</td>
+                <td class="range">15–42 IU/L</td>
+                <td>Liver and muscle damage</td>
+              </tr>
+              <tr>
+                <td>ALP (Alkaline Phosphatase)</td>
+                <td class="range">30–130 IU/L</td>
+                <td>Liver or bone disorders</td>
+              </tr>
+              <tr>
+                <td>Albumin</td>
+                <td class="range">35–50 g/L</td>
+                <td>Liver function and nutritional status</td>
+              </tr>
+              <tr>
+                <td>Calcium (Ca²⁺)</td>
+                <td class="range">2.2–2.6 mmol/L</td>
+                <td>Bone health, muscle function</td>
+              </tr>
+              <tr>
+                <td>Phosphate (PO₄³⁻)</td>
+                <td class="range">0.8–1.4 mmol/L</td>
+                <td>Bone metabolism and energy storage</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- CMP -->
+      <div class="section">
+        <div class="section-title">Comprehensive Metabolic Panel (CMP)</div>
+        <div class="table-wrap scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>Test Name</th>
+                <th>Normal Range</th>
+                <th>What It Measures</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Glucose</td>
+                <td class="range">70–99 mg/dL (fasting)</td>
+                <td>Blood sugar levels; screens for diabetes</td>
+              </tr>
+              <tr>
+                <td>Calcium</td>
+                <td class="range">8.5–10.2 mg/dL</td>
+                <td>Bone health, nerve function, and muscle contraction</td>
+              </tr>
+              <tr>
+                <td>Sodium (Na⁺)</td>
+                <td class="range">135–145 mmol/L</td>
+                <td>Fluid balance, nerve and muscle function</td>
+              </tr>
+              <tr>
+                <td>Potassium (K⁺)</td>
+                <td class="range">3.5–5.1 mmol/L</td>
+                <td>Heart and muscle function</td>
+              </tr>
+              <tr>
+                <td>Chloride (Cl⁻)</td>
+                <td class="range">96–106 mmol/L</td>
+                <td>Acid-base balance and hydration status</td>
+              </tr>
+              <tr>
+                <td>Carbon Dioxide (CO₂)</td>
+                <td class="range">23–29 mmol/L</td>
+                <td>Acid-base balance (bicarbonate level)</td>
+              </tr>
+              <tr>
+                <td>Blood Urea Nitrogen (BUN)</td>
+                <td class="range">6–20 mg/dL</td>
+                <td>Kidney function and protein metabolism</td>
+              </tr>
+              <tr>
+                <td>Creatinine</td>
+                <td class="range">0.6–1.3 mg/dL</td>
+                <td>Kidney function</td>
+              </tr>
+              <tr>
+                <td>Albumin</td>
+                <td class="range">3.4–5.4 g/dL</td>
+                <td>Liver function and nutritional status</td>
+              </tr>
+              <tr>
+                <td>Total Protein</td>
+                <td class="range">6.0–8.3 g/dL</td>
+                <td>Nutritional status and liver/kidney function</td>
+              </tr>
+              <tr>
+                <td>ALP (Alkaline Phosphatase)</td>
+                <td class="range">20–130 U/L</td>
+                <td>Liver and bone disorders</td>
+              </tr>
+              <tr>
+                <td>ALT (Alanine Aminotransferase)</td>
+                <td class="range">4–36 U/L</td>
+                <td>Liver cell injury</td>
+              </tr>
+              <tr>
+                <td>AST (Aspartate Aminotransferase)</td>
+                <td class="range">8–33 U/L</td>
+                <td>Liver and muscle damage</td>
+              </tr>
+              <tr>
+                <td>Bilirubin (Total)</td>
+                <td class="range">0.1–1.2 mg/dL</td>
+                <td>Liver function and red blood cell breakdown</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Cardiac markers -->
+      <div class="section">
+        <div class="section-title">Cardiac Markers</div>
+        <div class="table-wrap scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>Test Name</th>
+                <th>Normal Range</th>
+                <th>What It Measures</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Troponin I or T</td>
+                <td class="range">&lt;0.04 ng/mL</td>
+                <td>Heart muscle damage; elevated in heart attacks</td>
+              </tr>
+              <tr>
+                <td>CK-MB (Creatine Kinase-MB)</td>
+                <td class="range">&lt;5 ng/mL</td>
+                <td>Heart muscle injury; used to diagnose myocardial infarction</td>
+              </tr>
+              <tr>
+                <td>BNP (B-type Natriuretic Peptide)</td>
+                <td class="range">&lt;100 pg/mL</td>
+                <td>Heart failure; elevated in fluid overload</td>
+              </tr>
+              <tr>
+                <td>NT-proBNP</td>
+                <td class="range">&lt;125 pg/mL (under 75 yrs)</td>
+                <td>Heart failure; more stable form of BNP</td>
+              </tr>
+              <tr>
+                <td>Myoglobin</td>
+                <td class="range">25–72 ng/mL</td>
+                <td>Early marker of muscle injury, including heart muscle</td>
+              </tr>
+              <tr>
+                <td>LDH (Lactate Dehydrogenase)</td>
+                <td class="range">140–280 U/L</td>
+                <td>Tissue damage; elevated in heart, liver, and muscle injury</td>
+              </tr>
+              <tr>
+                <td>hs-CRP (High-sensitivity C-Reactive Protein)</td>
+                <td class="range">&lt;1.0 mg/L</td>
+                <td>Inflammation; used to assess cardiovascular risk</td>
+              </tr>
+              <tr>
+                <td>Homocysteine</td>
+                <td class="range">4–15 µmol/L</td>
+                <td>Cardiovascular risk; elevated levels linked to atherosclerosis</td>
+              </tr>
+              <tr>
+                <td>Lipoprotein(a)</td>
+                <td class="range">&lt;30 mg/dL</td>
+                <td>Genetic risk factor for cardiovascular disease</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

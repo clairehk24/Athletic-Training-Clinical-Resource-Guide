@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>List of Abbreviations</title>
+
+    <style>
+      :root {
+        --bg: #ffffff;
+        --panel: #fcfcfc;
+        --panel2: #f8f9fa;
+        --text: #454545;
+        --muted: #555;
+        --accent: #2a4d7a;
+        --border: rgba(0, 0, 0, 0.1);
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        --radius: 14px;
+        --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: var(--font);
+        background: var(--bg);
+        color: var(--text);
+      }
+
+      .wrap {
+        padding: 24px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      h1 {
+        margin: 0 0 18px;
+        font-size: 24px;
+        color: var(--accent);
+        letter-spacing: 0.3px;
+      }
+
+      .table-wrap {
+        border-radius: var(--radius);
+        overflow: hidden;
+        border: 1px solid var(--border);
+        background: #fff;
+        box-shadow: var(--shadow);
+      }
+
+      .scroll {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 14px;
+      }
+
+      th,
+      td {
+        padding: 10px 14px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        text-align: left;
+        vertical-align: top;
+      }
+
+      th {
+        background: var(--panel2);
+        font-weight: 900;
+        color: var(--muted);
+        text-transform: uppercase;
+        font-size: 12px;
+        letter-spacing: 0.06em;
+        white-space: nowrap;
+        width: 160px;
+      }
+
+      tr:last-child td {
+        border-bottom: none;
+      }
+
+      td.abbrev {
+        font-weight: 900;
+        color: var(--accent);
+        white-space: nowrap;
+        width: 160px;
+      }
+
+      @media (max-width: 800px) {
+        th,
+        td {
+          padding: 8px 10px;
+          font-size: 13px;
+        }
+        td.abbrev {
+          width: 120px;
+        }
+      }
+      /* A–Z sticky navigation */
+      .az-nav {
+        position: sticky;
+        top: 0;
+        z-index: 5;
+        margin: 0 0 14px;
+        padding: 10px 0;
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(8px);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      }
+
+      .az-inner {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+
+      .az-letter {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        border-radius: 10px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        background: var(--panel2);
+        color: var(--text);
+        text-decoration: none;
+        font-size: 12px;
+        font-weight: 900;
+        letter-spacing: 0.04em;
+      }
+
+      .az-letter:hover {
+        border-color: rgba(42, 77, 122, 0.35);
+        background: rgba(42, 77, 122, 0.1);
+      }
+
+      .az-letter.disabled {
+        opacity: 0.35;
+        pointer-events: none;
+      }
+
+      /* Letter divider row inside the table */
+      tr.letter-row td {
+        background: rgba(42, 77, 122, 0.08);
+        color: var(--accent);
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        font-size: 12px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      }
+
+      /* Scroll offset so sticky bar doesn't cover headings when jumping */
+      tr.letter-row {
+        scroll-margin-top: 64px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="wrap" data-searchable="abbreviations glossary acronyms medical athletic training">
+      <h1>List of Abbreviations</h1>
+      <nav class="az-nav" aria-label="A to Z navigation">
+        <div class="az-inner" id="azNav"></div>
+      </nav>
+
+      <div class="table-wrap scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Abbreviation</th>
+              <th>Meaning</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="abbrev">AAS</td>
+              <td>anabolic-androgenic steroids</td>
+            </tr>
+            <tr>
+              <td class="abbrev">ACE</td>
+              <td>angiotensin converting enzyme</td>
+            </tr>
+            <tr>
+              <td class="abbrev">ACTH</td>
+              <td>adrenocorticotrophin hormone</td>
+            </tr>
+            <tr>
+              <td class="abbrev">ADHD</td>
+              <td>attention-deficit/hyperactivity disorder</td>
+            </tr>
+            <tr>
+              <td class="abbrev">ADR</td>
+              <td>adverse drug reaction</td>
+            </tr>
+            <tr>
+              <td class="abbrev">AKI</td>
+              <td>acute kidney injury</td>
+            </tr>
+            <tr>
+              <td class="abbrev">AMI</td>
+              <td>acute myocardial infarction</td>
+            </tr>
+            <tr>
+              <td class="abbrev">APAP</td>
+              <td>acetaminophen</td>
+            </tr>
+            <tr>
+              <td class="abbrev">ASA</td>
+              <td>acetylsalicylic acid (aspirin)</td>
+            </tr>
+            <tr>
+              <td class="abbrev">ASD</td>
+              <td>acute stress disorder</td>
+            </tr>
+            <tr>
+              <td class="abbrev">AT</td>
+              <td>athletic trainer</td>
+            </tr>
+            <tr>
+              <td class="abbrev">ATC</td>
+              <td>Athletic Trainer, Certified</td>
+            </tr>
+            <tr>
+              <td class="abbrev">ATP</td>
+              <td>adenosine triphosphate</td>
+            </tr>
+            <tr>
+              <td class="abbrev">BBB</td>
+              <td>blood-brain barrier</td>
+            </tr>
+            <tr>
+              <td class="abbrev">BOC</td>
+              <td>Board of Certification, Inc.</td>
+            </tr>
+            <tr>
+              <td class="abbrev">CAATE</td>
+              <td>Commission on Accreditation of Athletic Training Education</td>
+            </tr>
+            <tr>
+              <td class="abbrev">CBD</td>
+              <td>cannabidiol</td>
+            </tr>
+            <tr>
+              <td class="abbrev">CKD</td>
+              <td>chronic kidney disease</td>
+            </tr>
+            <tr>
+              <td class="abbrev">COX</td>
+              <td>cyclooxygenase</td>
+            </tr>
+            <tr>
+              <td class="abbrev">COVID-19</td>
+              <td>coronavirus disease 2019</td>
+            </tr>
+            <tr>
+              <td class="abbrev">CRP</td>
+              <td>C-reactive protein</td>
+            </tr>
+            <tr>
+              <td class="abbrev">CRPS</td>
+              <td>complex regional pain syndrome</td>
+            </tr>
+            <tr>
+              <td class="abbrev">CSF</td>
+              <td>cerebrospinal fluid</td>
+            </tr>
+            <tr>
+              <td class="abbrev">DC</td>
+              <td>Doctor of Chiropractic</td>
+            </tr>
+            <tr>
+              <td class="abbrev">DEA</td>
+              <td>Drug Enforcement Administration</td>
+            </tr>
+            <tr>
+              <td class="abbrev">DMARD</td>
+              <td>disease-modifying antirheumatic drug</td>
+            </tr>
+            <tr>
+              <td class="abbrev">DO</td>
+              <td>Doctor of Osteopathic Medicine</td>
+            </tr>
+            <tr>
+              <td class="abbrev">DPT</td>
+              <td>Doctor of Physical Therapist</td>
+            </tr>
+            <tr>
+              <td class="abbrev">DSM-5</td>
+              <td>Diagnostic and Statistical Manual of Mental Disorders, 5th edition</td>
+            </tr>
+            <tr>
+              <td class="abbrev">DVT</td>
+              <td>deep vein thrombosis</td>
+            </tr>
+            <tr>
+              <td class="abbrev">EC</td>
+              <td>emergency contraception</td>
+            </tr>
+            <tr>
+              <td class="abbrev">EEG</td>
+              <td>electroencephalography</td>
+            </tr>
+            <tr>
+              <td class="abbrev">EPO</td>
+              <td>erythropoietin</td>
+            </tr>
+            <tr>
+              <td class="abbrev">ER / XR / XL</td>
+              <td>extended release</td>
+            </tr>
+            <tr>
+              <td class="abbrev">FDA</td>
+              <td>U.S. Food and Drug Administration</td>
+            </tr>
+            <tr>
+              <td class="abbrev">GFR</td>
+              <td>glomerular filtration rate</td>
+            </tr>
+            <tr>
+              <td class="abbrev">GERD</td>
+              <td>gastroesophageal reflux disease</td>
+            </tr>
+            <tr>
+              <td class="abbrev">HBV</td>
+              <td>hepatitis B virus</td>
+            </tr>
+            <tr>
+              <td class="abbrev">HIV</td>
+              <td>human immunodeficiency virus</td>
+            </tr>
+            <tr>
+              <td class="abbrev">ICD</td>
+              <td>International Classification of Diseases</td>
+            </tr>
+            <tr>
+              <td class="abbrev">IM</td>
+              <td>intramuscular</td>
+            </tr>
+            <tr>
+              <td class="abbrev">IOC</td>
+              <td>International Olympic Committee</td>
+            </tr>
+            <tr>
+              <td class="abbrev">IR</td>
+              <td>immediate-release dosage form</td>
+            </tr>
+            <tr>
+              <td class="abbrev">IV</td>
+              <td>intravenous</td>
+            </tr>
+            <tr>
+              <td class="abbrev">LD50</td>
+              <td>median lethal dose</td>
+            </tr>
+            <tr>
+              <td class="abbrev">MD</td>
+              <td>medical doctor</td>
+            </tr>
+            <tr>
+              <td class="abbrev">MRSA</td>
+              <td>Methicillin-resistant Staphylococcus aureus</td>
+            </tr>
+            <tr>
+              <td class="abbrev">NATA</td>
+              <td>National Athletic Trainers’ Association</td>
+            </tr>
+            <tr>
+              <td class="abbrev">NCAA</td>
+              <td>National Collegiate Athletic Association</td>
+            </tr>
+            <tr>
+              <td class="abbrev">NSAID</td>
+              <td>nonsteroidal anti-inflammatory drug</td>
+            </tr>
+            <tr>
+              <td class="abbrev">OTC</td>
+              <td>over the counter</td>
+            </tr>
+            <tr>
+              <td class="abbrev">PA</td>
+              <td>physician assistant</td>
+            </tr>
+            <tr>
+              <td class="abbrev">PCA</td>
+              <td>patient-controlled analgesia</td>
+            </tr>
+            <tr>
+              <td class="abbrev">PE</td>
+              <td>pulmonary embolism</td>
+            </tr>
+            <tr>
+              <td class="abbrev">PICC</td>
+              <td>peripherally inserted central catheter</td>
+            </tr>
+            <tr>
+              <td class="abbrev">PO</td>
+              <td>oral, by mouth</td>
+            </tr>
+            <tr>
+              <td class="abbrev">PRN</td>
+              <td>given as needed based on patient need</td>
+            </tr>
+            <tr>
+              <td class="abbrev">RA</td>
+              <td>rheumatoid arthritis</td>
+            </tr>
+            <tr>
+              <td class="abbrev">RN</td>
+              <td>registered nurse</td>
+            </tr>
+            <tr>
+              <td class="abbrev">SABA</td>
+              <td>short-acting beta-2 agonist</td>
+            </tr>
+            <tr>
+              <td class="abbrev">SARS-CoV-2</td>
+              <td>severe acute respiratory syndrome coronavirus 2</td>
+            </tr>
+            <tr>
+              <td class="abbrev">SLE</td>
+              <td>systemic lupus erythematosus</td>
+            </tr>
+            <tr>
+              <td class="abbrev">SR</td>
+              <td>sustained release</td>
+            </tr>
+            <tr>
+              <td class="abbrev">STI</td>
+              <td>sexually transmitted infection</td>
+            </tr>
+            <tr>
+              <td class="abbrev">THC</td>
+              <td>tetrahydrocannabinol</td>
+            </tr>
+            <tr>
+              <td class="abbrev">TIA</td>
+              <td>transient ischemic attack</td>
+            </tr>
+            <tr>
+              <td class="abbrev">USADA</td>
+              <td>United States Anti-Doping Agency</td>
+            </tr>
+            <tr>
+              <td class="abbrev">USP</td>
+              <td>United States Pharmacopeia</td>
+            </tr>
+            <tr>
+              <td class="abbrev">UTI</td>
+              <td>urinary tract infection</td>
+            </tr>
+            <tr>
+              <td class="abbrev">VTE</td>
+              <td>venous thromboembolism</td>
+            </tr>
+            <tr>
+              <td class="abbrev">WADA</td>
+              <td>World Anti-Doping Agency</td>
+            </tr>
+            <tr>
+              <td class="abbrev">WBC</td>
+              <td>white blood cell</td>
+            </tr>
+            <tr>
+              <td class="abbrev">WHO</td>
+              <td>World Health Organization</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <script>
+      (function () {
+        const table = document.querySelector("table");
+        const tbody = table ? table.querySelector("tbody") : null;
+        const nav = document.getElementById("azNav");
+        if (!tbody || !nav) return;
+
+        // Collect abbreviation rows (assumes first cell contains abbreviation)
+        const rows = Array.from(tbody.querySelectorAll("tr")).filter((tr) => {
+          // skip if we ever re-run and already inserted letter rows
+          return !tr.classList.contains("letter-row");
+        });
+
+        // Determine letter buckets present
+        const present = new Set();
+        rows.forEach((tr) => {
+          const firstCell = tr.querySelector("td");
+          if (!firstCell) return;
+          const txt = (firstCell.textContent || "").trim();
+          const firstChar = (txt[0] || "").toUpperCase();
+          const letter = firstChar >= "A" && firstChar <= "Z" ? firstChar : "#";
+          present.add(letter);
+        });
+
+        // Build nav A–Z (+ #)
+        const letters = ["#"];
+        for (let i = 65; i <= 90; i++) letters.push(String.fromCharCode(i));
+
+        nav.innerHTML = letters
+          .map((L) => {
+            const cls = present.has(L) ? "az-letter" : "az-letter disabled";
+            return `<a class="${cls}" href="#az-${L}">${L}</a>`;
+          })
+          .join("");
+
+        // Insert letter divider rows in correct places (assumes current table order is alphabetical-ish)
+        // If not perfectly sorted, this still works but dividers follow first occurrence.
+        const seen = new Set();
+        rows.forEach((tr) => {
+          const firstCell = tr.querySelector("td");
+          if (!firstCell) return;
+          const txt = (firstCell.textContent || "").trim();
+          const firstChar = (txt[0] || "").toUpperCase();
+          const letter = firstChar >= "A" && firstChar <= "Z" ? firstChar : "#";
+
+          if (seen.has(letter)) return;
+          seen.add(letter);
+
+          const divider = document.createElement("tr");
+          divider.className = "letter-row";
+          divider.id = `az-${letter}`;
+          divider.innerHTML = `<td colspan="2">${letter}</td>`;
+          tbody.insertBefore(divider, tr);
+        });
+      })();
+    </script>
+  </body>
+</html>
